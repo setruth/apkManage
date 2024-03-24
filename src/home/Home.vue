@@ -88,6 +88,12 @@ function delProjectConfirm(item: ProjectInfo) {
       pageLoadingShow("正在删除")
       delProject(item.projectId).then(_ => {
         naiveMsg.success("删除成功")
+        if (nowReviewProject.projectId==item.projectId){
+          Object.assign(nowReviewProject,{
+            projectId: "",
+            name: ""
+          } )
+        }
         updateProjectList()
         pageLoadingHide()
       }).catch(err => {

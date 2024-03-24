@@ -1,0 +1,26 @@
+spring:
+  config:
+    name: dev
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/apk?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: root
+    password: "071721"
+server:
+  port: 8888
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+    enable-swagger-models: true
+    enable-document-manage: true
+    swagger-model-name: 实体类列表
+    enable-search: false
+    enable-footer: false
+    enable-footer-custom: true
+    footer-custom-content: MIT License | [开源协议](https://opensource.org/licenses/MIT)
+  basic:
+    enable: false

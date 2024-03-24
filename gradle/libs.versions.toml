@@ -1,0 +1,50 @@
+[versions]
+
+#plugin
+kotlinPlugin = "1.9.20"
+springBootPlugin = "3.2.0"
+dependencyManagementPlugin = "1.1.4"
+
+#dependence
+mockk = "1.13.8"
+knife4j = "4.3.0"
+jwt = "4.3.0"
+mybatisActable = "1.5.0.RELEASE"
+mysql = "8.0.28"
+mybatisFlex = "1.8.2"
+mybatisFlexKotlin = "1.0.7"
+mybatisSpringBoot = "3.0.3"
+mqttClient = "5.5.14"
+kotlinCoroutines = "1.5.2"
+klogr="1.1.3"
+[libraries]
+#test
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+#springboot
+springBoot-webmvc = { group = "org.springframework.boot", name = "spring-boot-starter-web" }
+springBoot-test = { group = "org.springframework.boot", name = "spring-boot-starter-test" }
+# kotlin
+kotlin-jackson = { group = "com.fasterxml.jackson.module", name = "jackson-module-kotlin" }
+kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect" }
+#APIDoc
+knife4j = { group = "com.github.xiaoymin", name = "knife4j-openapi3-jakarta-spring-boot-starter", version.ref = "knife4j" }
+#JWT
+jwt = { group = "com.auth0", name = "java-jwt", version.ref = "jwt" }
+
+#Mysql-Connect
+mysql-connector = { group = "mysql", name = "mysql-connector-java", version.ref = "mysql" }
+#Mybatis
+mybatis-actable = { group = "com.gitee.sunchenbin.mybatis.actable", name = "mybatis-enhance-actable", version.ref = "mybatisActable" }
+mybatis-flex-core = { group = "com.mybatis-flex", name = "mybatis-flex-core", version.ref = "mybatisFlex" }
+mybatis-flex-kotlin = { group = "com.mybatis-flex", name = "mybatis-flex-kotlin-extensions", version.ref = "mybatisFlexKotlin" }
+mybatis-springboot = { group = "org.mybatis.spring.boot", name = "mybatis-spring-boot-starter", version.ref = "mybatisSpringBoot" }
+#MQTT
+spring-mqtt = { group = "org.springframework.integration", name = "spring-integration-mqtt", version.ref = "mqttClient" }
+#协程
+kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
+kLogrInit={ group = "com.github.setruth.SetruthTools", name = "KLogr", version.ref = "klogr" }
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinPlugin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlinPlugin" }
+springboot = { id = "org.springframework.boot", version.ref = "springBootPlugin" }
+dependencyManagement = { id = "io.spring.dependency-management", version.ref = "dependencyManagementPlugin" }

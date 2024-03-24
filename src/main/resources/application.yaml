@@ -1,0 +1,37 @@
+spring:
+  config:
+    import:
+    - classpath:application-dev.yaml
+    - classpath:application-test.yaml
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 64000MB
+      max-request-size: 6400MB
+
+
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  group-configs:
+    - group: 'APK管理'
+      paths-to-match: '/**'
+      packages-to-scan: com.setruth
+
+actable:
+  table:
+    auto: update
+  model:
+    pack: com.setruth
+  database:
+    type: mysql
+
+mybatis:
+  mapper-locations: classpath*:xxxxxx/*.xml,classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml

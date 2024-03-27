@@ -48,6 +48,7 @@ class APKService(
     fun apkDownload(projectId: String, response: HttpServletResponse) =
         FileUtil.findFileInFolder(APK_PATH, projectId)?.let { file ->
             response.contentType = "application/force-download"
+            response.addHeader("Content-Length", file.length().toString())
             response.addHeader("Content-Disposition", "attachment;fileName=${URLEncoder.encode(file.name, "UTF-8")}")
             val buffer = ByteArray(1024)
             FileInputStream(file).use { fis ->

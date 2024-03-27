@@ -39,3 +39,9 @@ out/
 ### Kotlin ###
 .kotlin
 /apks/
+/src/main/resources/application-test.yaml
+/src/main/resources/static/assets/empty-CIvISZJa.png
+/src/main/resources/static/index.html
+/src/main/resources/static/assets/index-B-KFkEA3.js
+/src/main/resources/static/assets/index-Djs3-kFi.css
+/src/main/resources/static/vite.svg

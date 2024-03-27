@@ -1,15 +1,15 @@
 spring:
   config:
-    name: dev
+    name: test
     activate:
-      on-profile: dev
+      on-profile: test
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/apk?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
+    url: jdbc:mysql://47.98.244.244:3306/apk?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
     username: root
     password: "071721"
 server:
-  port: 8888
+  port: 1000
 
 knife4j:
   enable: true

@@ -1,10 +1,9 @@
 package com.setruth.apkmanage.service
 
-import com.setruth.apkmanage.model.APP_ID
-import com.setruth.apkmanage.model.ProjectInfoEntity
-import com.setruth.apkmanage.model.BaseResponse
-import com.setruth.apkmanage.model.response
+import com.setruth.apkmanage.model.*
+import com.setruth.apkmanage.repository.APKRepository
 import com.setruth.apkmanage.repository.ProjectRepository
+import com.setruth.apkmanage.utils.FileUtil
 import com.setruth.apkmanage.utils.SnowflakeId
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -20,6 +19,7 @@ import org.springframework.stereotype.Service
 class ProjectService(
     private val snowflakeId: SnowflakeId,
     private val projectRep: ProjectRepository,
+    private val apkRep: APKRepository,
 ) {
     fun projects() = HttpStatus.OK response BaseResponse("获取成功", projectRep.projects())
 
@@ -32,6 +32,8 @@ class ProjectService(
     }
 
     fun del(projectId: String) = projectRep.del(projectId).run {
+        apkRep.delAPKInfo(projectId)
+        FileUtil.findFileInFolder(APK_PATH, projectId)?.delete()
         HttpStatus.OK response BaseResponse("删除成功", true)
     }
 
